@@ -1,8 +1,9 @@
 FROM public.ecr.aws/lambda/python:3.8
 
 COPY quesans/app.py ./requirements.txt ./
-COPY minilm-uncased-squad2 /opt/ml/model
+
 RUN python3.8 -m pip install -r requirements.txt -t .
 
-# Command can be overwritten by providing a different command in the template directly.
+RUN python3.8 -c "from transformers import AutoTokenizer, AutoModelForQuestionAnswering; model_name='deepset/minilm-uncased-squad2'; AutoTokenizer.from_pretrained(model_name).save_pretrained('/opt/ml/model'); AutoModelForQuestionAnswering.from_pretrained(model_name).save_pretrained('/opt/ml/model')"
+
 CMD ["app.handle_request"]
