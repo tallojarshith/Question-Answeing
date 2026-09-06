@@ -3,3 +3,4 @@ requests
 torch==1.8.0+cpu
 transformers==4.2.2
 urllib3<2
+six
