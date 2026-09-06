@@ -1,6 +1,10 @@
 requests
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.8.0+cpu
-transformers==4.2.2
+
 urllib3<2
+
+transformers==4.30.2
+huggingface-hub==0.16.4
+tokenizers==0.13.3
 six
