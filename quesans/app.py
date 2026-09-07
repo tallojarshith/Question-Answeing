@@ -4,11 +4,15 @@ import numpy as np
 from transformers import pipeline
 
 
+##response_headers = {
+    ##"Content-Type": "application/json",
+    ##"Access-Control-Allow-Origin": "*",
+    ##"Access-Control-Allow-Credentials": True,
+##}
 response_headers = {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Credentials": True,
+    "Content-Type": "application/json"
 }
+
 
 
 nlp = pipeline('question-answering', model = '/opt/ml/model', tokenizer='/opt/ml/model')
